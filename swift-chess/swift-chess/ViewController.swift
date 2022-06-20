@@ -13,6 +13,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         let board = Board()
+        
+        let avPoses = board.getPiecePositions(posStr: "A2")
     }
 
 

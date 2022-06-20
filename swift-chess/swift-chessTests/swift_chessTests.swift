@@ -24,13 +24,17 @@ class swift_chessTests: XCTestCase {
         // Any test you write for XCTest can be annotated as throws and async.
         // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
         // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-        let board = Board()
     }
     
     func testCheckPiecesExsitsInValidPosition() throws {
         let board = Board()
+        
+        guard let fileIdx = piece.pos.fileIndex else {
+            return XCTAssertTrue(false)
+        }
+        
         for piece in board.pieces {
-            if !(piece.garo >= 0 && piece.sero < 8) {
+            if !( fileIdx >= 0 && fileIdx < 8) {
                 return XCTAssertTrue(false)
             }
         }
@@ -90,7 +94,19 @@ class swift_chessTests: XCTestCase {
     }
     
     func testBoardMovesPiece() throws {
+        let board = Board()
+        let testPos = "A2"
+        print("\n\n명령을 입력하세요> ?\(testPos)")
         
+        let avPoses = board.getPiecePositions(posStr: testPos)
+        
+        print("\n\(avPoses)")
+        
+        if let first = avPoses.first, avPoses.count == 1 {
+            XCTAssertTrue("A3" == first.posStr)
+        } else {
+            XCTAssertFalse(true)
+        }
     }
     
     func testPiecePositionIsValid() throws {

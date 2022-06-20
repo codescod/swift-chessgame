@@ -57,10 +57,10 @@ class Board {
         
         var piecePositions: [String: String] = [:]
         for p in pieces {
-            let garo: Character = p.fileStr
-            let sero: String = String(p.sero)
+            let file = p.pos.fileStr
+            let rank = p.pos.rankStr
             
-            let pos = "\(garo)\(sero)"
+            let pos = "\(file)\(rank)"
             
             piecePositions[pos] = p.emojiString
         }
@@ -69,9 +69,9 @@ class Board {
             boardStatus += "\(se + 1)"
             
             for ga in 0..<8 {
-                let garo: String = alphabets[ga]
-                let sero: String = String(se)
-                let pos = "\(garo)\(sero)"
+                let file: String = alphabets[ga]
+                let rank: String = String(se + 1)
+                let pos = "\(file)\(rank)"
                 if let emoji = piecePositions[pos] {
                     boardStatus += "\(emoji)"
                 } else {
@@ -88,4 +88,21 @@ class Board {
         print(showCurrentBoardStatus())
     }
     
+    func getPiecePositions(posStr: String) -> [Position] {
+        
+        guard let selectedPiece = pieces.filter({
+            return $0.pos.posStr == posStr
+        }).first else {
+            print("가능한 이동 방법이 없습니다.\n")
+            return []
+        }
+        
+        let availablePos = selectedPiece.getAvailablePosition(boardPieces: pieces)
+        
+        for p in availablePos {
+            print("\(p.posStr) ")
+        }
+        
+        return availablePos
+    }
 }
