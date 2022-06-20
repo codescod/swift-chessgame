@@ -71,6 +71,8 @@ class Pieces {
         
         self.type = type
         self.pieceColor = pieceColor
+        
+//        self.delegate = board
     }
 
     func getAvailablePosition(boardPieces: [Pieces]) -> [Position] {
@@ -92,10 +94,13 @@ class Pieces {
         return normalMovePosition.compactMap{ $0 }
     }
     
+//    func movePieces(from: Position, to: Position) -> Bool {
+//        return delegate.updateBoard(from: from, to: to)
+//    }
     
 }
 
-struct Position {
+struct Position: Hashable {
     var posStr: String
     
     init(posStr: String) {

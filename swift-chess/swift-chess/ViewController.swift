@@ -15,6 +15,11 @@ class ViewController: UIViewController {
         let board = Board()
         
         let avPoses = board.getPiecePositions(posStr: "A2")
+        
+//        board.updateBoard(from: Position(posStr: "A2"), to: Position(posStr: "A3"))
+        
+        board.display()
+        
     }
 
 

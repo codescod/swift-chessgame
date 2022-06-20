@@ -102,7 +102,21 @@ class Board {
         for p in availablePos {
             print("\(p.posStr) ")
         }
-        
+        print("\n\n")
         return availablePos
+    }
+}
+
+extension Board {
+    // 이 함수의 사용전에 이동을 위해서는 각 말의 이동 가능 여부를 확인 후 이동해야한다.
+    private func updateBoard(from: Position, to: Position) -> Bool {
+        if let toPiece = pieces.filter({ $0.pos == from }).first {
+            pieces = pieces.filter { $0.pos != to }
+            toPiece.pos = to
+            
+            return true
+        } else {
+            return false
+        }
     }
 }
