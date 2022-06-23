@@ -158,6 +158,7 @@ struct Position: Hashable {
         }
     }
     
+    // position이 class였다면, 리턴값을 막 사용하지 못할텐데, 저는 포지션에 있어서는 stateless한 데이터를 제공하고 싶었습니다. 요구사항이 가능한 포지션을 리턴하라는 것이라서, 의미적으로 이것을 확인하고 아무짓을 해도 상관없게 하고싶었습니다.
     func indexToAttackPosition(file_mov: Int, rank_mov: Int, boardPieces: [Pieces]) -> Position? {
         guard let fileIndex = fileIndex, let rankIndex = rankIndex else {
             return nil
