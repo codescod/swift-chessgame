@@ -7,7 +7,8 @@
 
 import Foundation
 
-let alphabets = ["A", "B", "C", "D", "E", "F", "G", "H"]
+let file = ["A", "B", "C", "D", "E", "F", "G", "H"]
+let rank = ["1", "2", "3", "4", "5", "6", "7", "8"]
 
 class Board {
     
@@ -19,7 +20,7 @@ class Board {
     }
     
     private func setInitPieces() {
-        for alp in alphabets {
+        for alp in file {
             pieces.append(Pieces(posStr: "\(alp)2", type: .Pawn, pieceColor: .black))
         }
         
@@ -33,7 +34,7 @@ class Board {
         pieces.append(Pieces(posStr: "F1", type: .Bishop, pieceColor: .black))
         pieces.append(Pieces(posStr: "E1", type: .Quuen, pieceColor: .black))
         
-        for alp in alphabets {
+        for alp in file {
             pieces.append(Pieces(posStr: "\(alp)7", type: .Pawn, pieceColor: .white))
         }
         pieces.append(Pieces(posStr: "A8", type: .Luke, pieceColor: .white))
@@ -69,7 +70,7 @@ class Board {
             boardStatus += "\(se + 1)"
             
             for ga in 0..<8 {
-                let file: String = alphabets[ga]
+                let file: String = file[ga]
                 let rank: String = String(se + 1)
                 let pos = "\(file)\(rank)"
                 if let emoji = piecePositions[pos] {
@@ -89,7 +90,6 @@ class Board {
     }
     
     func getPiecePositions(posStr: String) -> [Position] {
-        
         guard let selectedPiece = pieces.filter({
             return $0.pos.posStr == posStr
         }).first else {
@@ -105,17 +105,23 @@ class Board {
         print("\n\n")
         return availablePos
     }
+    
+    func getPieceByPosStr(posStr: String) -> Pieces? {
+        return pieces.filter({
+            print("kk \($0.pos.posStr)")
+            return $0.pos.posStr == posStr
+        }).first
+    }
 }
 
 extension Board {
     // 이 함수의 사용전에 이동을 위해서는 각 말의 이동 가능 여부를 확인 후 이동해야한다.
-    private func updateBoard(from: Position, to: Position) -> Bool {
+    func updateBoard(from: Position, to: Position) -> Bool {
         if let toPiece = pieces.filter({ $0.pos == from }).first {
             pieces = pieces.filter { $0.pos != to }
             toPiece.pos = to
             
             // 추가로 보드에서 to 위치의 말을 제거해줘야되.
-            
             return true
         } else {
             return false

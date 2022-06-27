@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C2C757E92869851D004B23FC /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2C757E82869851D004B23FC /* BoardView.swift */; };
 		C2F635D32860599C0042149B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F635D22860599C0042149B /* AppDelegate.swift */; };
 		C2F635D52860599C0042149B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F635D42860599C0042149B /* SceneDelegate.swift */; };
 		C2F635D72860599C0042149B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2F635D62860599C0042149B /* ViewController.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C2C757E82869851D004B23FC /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		C2F635CF2860599C0042149B /* swift-chess.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "swift-chess.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C2F635D22860599C0042149B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C2F635D42860599C0042149B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			children = (
 				C2F6360328605A090042149B /* Board.swift */,
 				C2F6360528605CE20042149B /* Pieces.swift */,
+				C2C757E82869851D004B23FC /* BoardView.swift */,
 			);
 			path = mycodes;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				C2F6360628605CE20042149B /* Pieces.swift in Sources */,
 				C2F635D72860599C0042149B /* ViewController.swift in Sources */,
 				C2F635D32860599C0042149B /* AppDelegate.swift in Sources */,
+				C2C757E92869851D004B23FC /* BoardView.swift in Sources */,
 				C2F6360428605A090042149B /* Board.swift in Sources */,
 				C2F635D52860599C0042149B /* SceneDelegate.swift in Sources */,
 			);

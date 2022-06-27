@@ -105,7 +105,6 @@ struct Position: Hashable {
     
     init(posStr: String) {
         self.posStr = posStr
-        
     }
     
     var rankStr: Character {
@@ -152,7 +151,7 @@ struct Position: Hashable {
         let rankIdx = rankIndex + rank_mov
         
         if rankIdx >= 0 && rankIdx < 8 && fileIdx >= 0 && fileIdx < 8 {
-            return Position(posStr: "\(alphabets[fileIdx])\(rankIdx + 1)")
+            return Position(posStr: "\(file[fileIdx])\(rankIdx + 1)")
         } else {
             return nil
         }
@@ -168,7 +167,7 @@ struct Position: Hashable {
         let rankIdx = rankIndex + rank_mov
         
         if rankIdx >= 0 && rankIdx < 8 && fileIdx >= 0 && fileIdx < 8 {
-            let newPosStr = "\(alphabets[fileIdx])\(rankIdx + 1)"
+            let newPosStr = "\(file[fileIdx])\(rankIdx + 1)"
             if let nPos = boardPieces.map({$0.pos}).filter({ $0.posStr ==  newPosStr}).first {
                 return Position(posStr: nPos.posStr)
             } else {
