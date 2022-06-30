@@ -10,6 +10,7 @@ import UIKit
 
 class BoardView: UIView {
     let board = Board()
+    
     var piecesViews: [PieceView] = []
     var current_tapped_view: PieceView?
     

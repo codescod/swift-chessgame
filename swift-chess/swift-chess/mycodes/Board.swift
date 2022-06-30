@@ -120,8 +120,6 @@ extension Board {
         if let toPiece = pieces.filter({ $0.pos == from }).first {
             pieces = pieces.filter { $0.pos != to }
             toPiece.pos = to
-            
-            // 추가로 보드에서 to 위치의 말을 제거해줘야되.
             return true
         } else {
             return false
